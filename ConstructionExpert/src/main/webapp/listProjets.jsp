@@ -78,6 +78,7 @@
             <td class="p-2"><%= p.getDateFin() != null ? p.getDateFin() : "" %></td>
             <td class="p-2"><%= p.getBudget() %></td>
             <td class="p-2">
+                <a href="editProjet.jsp<%= p.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>
 
             </td>
         </tr>
