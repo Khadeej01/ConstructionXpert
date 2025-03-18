@@ -16,7 +16,7 @@
 
     <div class="space-x-6">
         <a href="createProjet.jsp" class="hover:text-blue-200">Projet</a>
-        <a href="#" class="hover:text-blue-200">Task </a>
+        <a href="createTache.jsp" class="hover:text-blue-200">Task </a>
         <a href="#" class="hover:text-blue-200">Resources</a>
         <a href="#" class="hover:text-blue-200">LOGIN</a>
         <a href="login.jsp" class="hover:text-blue-200">Login</a>

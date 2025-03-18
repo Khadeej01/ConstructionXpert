@@ -80,7 +80,7 @@
             <td class="p-2">
                 <a href="editProjet.jsp<%= p.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>
                 <a href="ProjetServlet?action=delete&id=<%= p.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
-                <a href="createTache.jsp" class="text-green-600 hover:text-green-800 ml-2">Ajouter une tâche</a>
+                <a href="listTaches.jsp" class="text-green-600 hover:text-green-800 ml-2">Ajouter une tâche</a>
             </td>
         </tr>
         <% } %>

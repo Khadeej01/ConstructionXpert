@@ -43,4 +43,23 @@ public class TacheDAO {
         }
         return taches;
     }
+
+    public List<Tache> getAllTaches() throws SQLException {
+        List<Tache> taches = new ArrayList<>();
+        String sql = "SELECT * FROM tache";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                taches.add(new Tache(
+                        rs.getInt("id"),
+                        rs.getString("description"),
+                        rs.getDate("dateDebut"),
+                        rs.getDate("dateFin"),
+                        rs.getInt("project_id")
+                ));
+            }
+        }
+        return taches;
+    }
 }
