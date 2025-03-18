@@ -79,7 +79,7 @@
             <td class="p-2"><%= p.getBudget() %></td>
             <td class="p-2">
                 <a href="editProjet.jsp<%= p.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>
-
+                <a href="ProjetServlet?action=delete&id=<%= p.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
             </td>
         </tr>
         <% } %>
