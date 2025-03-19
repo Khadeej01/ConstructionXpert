@@ -1,7 +1,5 @@
 package Controller;
 
-
-
 import DAO.TacheDAO;
 import Model.Tache;
 import jakarta.servlet.ServletException;
@@ -14,6 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @WebServlet("/TacheServlet")
 public class TacheServlet extends HttpServlet {
@@ -24,12 +23,22 @@ public class TacheServlet extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null || action.isEmpty()) {
-            response.sendRedirect("ProjetServlet");
-            return;
+            action = "list"; // Par défaut, afficher la liste des tâches
         }
 
-        if (action.equals("create")) {
-            request.getRequestDispatcher("/createTache.jsp").forward(request, response);
+        try {
+            if (action.equals("list")) {
+                // Récupérer toutes les tâches
+                List<Tache> taches = tacheDAO.getAllTaches();
+                request.setAttribute("taches", taches);
+                request.getRequestDispatcher("/listTaches.jsp").forward(request, response);
+            } else if (action.equals("create")) {
+                request.getRequestDispatcher("/createTache.jsp").forward(request, response);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("error", "Erreur SQL : " + e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 
@@ -55,7 +64,7 @@ public class TacheServlet extends HttpServlet {
                         Integer.parseInt(request.getParameter("projectId"))
                 );
                 tacheDAO.createTache(tache);
-                response.sendRedirect("ProjetServlet");
+                response.sendRedirect("TacheServlet?action=list"); // Rediriger vers la liste des tâches
             }
         } catch (ParseException e) {
             e.printStackTrace();

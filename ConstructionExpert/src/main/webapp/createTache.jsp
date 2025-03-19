@@ -47,7 +47,7 @@
 
 <script>
     function validateForm() {
-        // Réinitialiser les messages d'erreur
+
         document.querySelectorAll('.text-red-500').forEach(error => error.classList.add('hidden'));
 
         let isValid = true;

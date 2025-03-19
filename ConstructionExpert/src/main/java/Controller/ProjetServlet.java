@@ -177,7 +177,7 @@ public class ProjetServlet extends HttpServlet {
         String action = request.getParameter("action");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        // Vérifier et gérer action null
+
         if (action == null || action.isEmpty()) {
             request.setAttribute("error", "Action non spécifiée.");
             request.getRequestDispatcher("/error.jsp").forward(request, response);
