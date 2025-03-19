@@ -106,6 +106,7 @@ public class TacheServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("error", "ID de projet invalide : " + e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
+            //commn
         }
     }
 }
