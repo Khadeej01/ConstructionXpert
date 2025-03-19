@@ -95,4 +95,12 @@ public class TacheDAO {
         }
     }
 
+    public void deleteTache(int id) throws SQLException {
+        String sql = "DELETE FROM tache WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+    }
 }

@@ -45,7 +45,7 @@ public class TacheServlet extends HttpServlet {
                 }
             } else if (action.equals("delete")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-
+                tacheDAO.deleteTache(id);
                 response.sendRedirect("TacheServlet?action=list");
             }
         } catch (SQLException e) {
