@@ -44,6 +44,25 @@ public class TacheDAO {
         return taches;
     }
 
+    public Tache getTacheById(int id) throws SQLException {
+        String sql = "SELECT * FROM tache WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Tache(
+                            rs.getInt("id"),
+                            rs.getString("description"),
+                            rs.getDate("dateDebut"),
+                            rs.getDate("dateFin"),
+                            rs.getInt("project_id")
+                    );
+                }
+            }
+        }
+        return null;
+    }
     public List<Tache> getAllTaches() throws SQLException {
         List<Tache> taches = new ArrayList<>();
         String sql = "SELECT * FROM tache";
@@ -62,4 +81,18 @@ public class TacheDAO {
         }
         return taches;
     }
+
+    public void updateTache(Tache tache) throws SQLException {
+        String sql = "UPDATE tache SET description = ?, dateDebut = ?, dateFin = ?, project_id = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, tache.getDescription());
+            stmt.setDate(2, new java.sql.Date(tache.getDateDebut().getTime()));
+            stmt.setDate(3, new java.sql.Date(tache.getDateFin().getTime()));
+            stmt.setInt(4, tache.getProjectId());
+            stmt.setInt(5, tache.getId());
+            stmt.executeUpdate();
+        }
+    }
+
 }

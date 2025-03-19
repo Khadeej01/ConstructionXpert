@@ -28,16 +28,33 @@ public class TacheServlet extends HttpServlet {
 
         try {
             if (action.equals("list")) {
-                // Récupérer toutes les tâches
                 List<Tache> taches = tacheDAO.getAllTaches();
                 request.setAttribute("taches", taches);
                 request.getRequestDispatcher("/listTaches.jsp").forward(request, response);
             } else if (action.equals("create")) {
                 request.getRequestDispatcher("/createTache.jsp").forward(request, response);
+            } else if (action.equals("edit")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Tache tache = tacheDAO.getTacheById(id);
+                if (tache != null) {
+                    request.setAttribute("tache", tache);
+                    request.getRequestDispatcher("/editTache.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("error", "Tâche avec ID " + id + " non trouvée.");
+                    request.getRequestDispatcher("/error.jsp").forward(request, response);
+                }
+            } else if (action.equals("delete")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+
+                response.sendRedirect("TacheServlet?action=list");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("error", "Erreur SQL : " + e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            request.setAttribute("error", "ID invalide : " + e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
@@ -64,7 +81,18 @@ public class TacheServlet extends HttpServlet {
                         Integer.parseInt(request.getParameter("projectId"))
                 );
                 tacheDAO.createTache(tache);
-                response.sendRedirect("TacheServlet?action=list"); // Rediriger vers la liste des tâches
+                response.sendRedirect("TacheServlet?action=list");
+            } else if (action.equals("update")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Tache tache = new Tache(
+                        id,
+                        request.getParameter("description"),
+                        sdf.parse(request.getParameter("dateDebut")),
+                        sdf.parse(request.getParameter("dateFin")),
+                        Integer.parseInt(request.getParameter("projectId"))
+                );
+                tacheDAO.updateTache(tache);
+                response.sendRedirect("TacheServlet?action=list");
             }
         } catch (ParseException e) {
             e.printStackTrace();

@@ -43,7 +43,7 @@
       <td class="p-2"><%= projetNom %></td>
       <td class="p-2">
         <a href="TacheServlet?action=edit&id=<%= t.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>
-        <a href="TacheServlet?action=delete&id=<%= t.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
+
       </td>
     </tr>
     <% } %>
