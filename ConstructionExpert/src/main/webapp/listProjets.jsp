@@ -1,147 +1,160 @@
-<%--<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>--%>
-<%--<%@ page import="Model.Projet" %>--%>
-<%--<%@ page import="java.util.List" %>--%>
-<%--<!DOCTYPE html>--%>
-<%--<html lang="fr">--%>
-<%--<head>--%>
-<%--    <title>Liste des Projets</title>--%>
-<%--    <script src="https://cdn.tailwindcss.com"></script>--%>
-<%--</head>--%>
-<%--<body class="bg-gray-100">--%>
-<%--<div class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">--%>
-<%--    <h1 class="text-2xl font-bold text-indigo-700 mb-4">Liste des Projets</h1>--%>
-<%--    <%--%>
-<%--        List<Projet> projets = (List<Projet>) request.getAttribute("projets");--%>
-<%--        if (projets == null || projets.isEmpty()) {--%>
-<%--    %>--%>
-<%--    <p class="text-gray-600">Aucun projet trouvé.</p>--%>
-<%--    <% } else { %>--%>
-<%--    <table class="w-full text-left border-collapse">--%>
-<%--        <tr class="bg-indigo-600 text-white">--%>
-<%--            <th class="p-2">ID</th>--%>
-<%--            <th class="p-2">Nom</th>--%>
-<%--            <th class="p-2">Description</th>--%>
-<%--            <th class="p-2">Date Début</th>--%>
-<%--            <th class="p-2">Date Fin</th>--%>
-<%--            <th class="p-2">Budget</th>--%>
-<%--        </tr>--%>
-<%--        <% for (Projet p : projets) { %>--%>
-<%--        <tr class="border-b">--%>
-<%--            <td class="p-2"><%= p.getId() %></td>--%>
-<%--            <td class="p-2"><%= p.getNom() != null ? p.getNom() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getDescription() != null ? p.getDescription() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getDateDebut() != null ? p.getDateDebut() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getDateFin() != null ? p.getDateFin() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getBudget() %></td>--%>
-<%--        </tr>--%>
-<%--        <% } %>--%>
-<%--    </table>--%>
-<%--    <% } %>--%>
-<%--</div>--%>
-<%--</body>--%>
-<%--</html>--%>
-
-<%--<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>--%>
-<%--<%@ page import="Model.Projet" %>--%>
-<%--<%@ page import="java.util.List" %>--%>
-<%--<!DOCTYPE html>--%>
-<%--<html lang="fr">--%>
-<%--<head>--%>
-<%--    <title>Liste des Projets</title>--%>
-<%--    <script src="https://cdn.tailwindcss.com"></script>--%>
-<%--</head>--%>
-<%--<body class="bg-gray-100">--%>
-<%--<div class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">--%>
-<%--    <h1 class="text-2xl font-bold text-indigo-700 mb-4">Liste des Projets</h1>--%>
-<%--    <%--%>
-<%--        List<Projet> projets = (List<Projet>) request.getAttribute("projets");--%>
-<%--        if (projets == null || projets.isEmpty()) {--%>
-<%--    %>--%>
-<%--    <p class="text-gray-600">Aucun projet trouvé.</p>--%>
-<%--    <% } else { %>--%>
-<%--    <table class="w-full text-left border-collapse">--%>
-<%--        <tr class="bg-indigo-600 text-white">--%>
-<%--            <th class="p-2">ID</th>--%>
-<%--            <th class="p-2">Nom</th>--%>
-<%--            <th class="p-2">Description</th>--%>
-<%--            <th class="p-2">Date Début</th>--%>
-<%--            <th class="p-2">Date Fin</th>--%>
-<%--            <th class="p-2">Budget</th>--%>
-<%--            <th class="p-2">Actions</th>--%>
-<%--        </tr>--%>
-<%--        <% for (Projet p : projets) { %>--%>
-<%--        <tr class="border-b">--%>
-<%--            <td class="p-2"><%= p.getId() %></td>--%>
-<%--            <td class="p-2"><%= p.getNom() != null ? p.getNom() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getDescription() != null ? p.getDescription() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getDateDebut() != null ? p.getDateDebut() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getDateFin() != null ? p.getDateFin() : "" %></td>--%>
-<%--            <td class="p-2"><%= p.getBudget() %></td>--%>
-<%--            <td class="p-2">--%>
-<%--                <a href="editProjet.jsp<%= p.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>--%>
-<%--                <a href="ProjetServlet?action=delete&id=<%= p.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>--%>
-
-<%--            </td>--%>
-<%--        </tr>--%>
-<%--        <% } %>--%>
-<%--    </table>--%>
-<%--    <% } %>--%>
-<%--    <a href="createProjet.jsp" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-4 inline-block">Ajouter un autre projet</a>--%>
-<%--</div>--%>
-<%--</body>--%>
-<%--</html>--%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="Model.Tache" %>
-<%@ page import="DAO.ProjetDAO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="Model.Projet" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Liste des Tâches</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstructExpert | Liste des Projets</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c3e50',
+                        secondary: '#f39c12',
+                        accent: '#3498db',
+                        success: '#27ae60',
+                        danger: '#e74c3c',
+                        warning: '#f1c40f',
+                        light: '#ecf0f1',
+                        dark: '#2c3e50'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-100">
-<div class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
-    <h1 class="text-2xl font-bold text-indigo-700 mb-4">Liste des Tâches</h1>
-    <%
-        List<Tache> taches = (List<Tache>) request.getAttribute("taches");
-        if (taches == null || taches.isEmpty()) {
-    %>
-    <p class="text-gray-600">Aucune tâche trouvée.</p>
-    <% } else { %>
-    <table class="w-full text-left border-collapse">
-        <tr class="bg-indigo-600 text-white">
-            <th class="p-2">ID</th>
-            <th class="p-2">Description</th>
-            <th class="p-2">Date Début</th>
-            <th class="p-2">Date Fin</th>
-            <th class="p-2">Projet</th>
-            <th class="p-2">Actions</th>
-        </tr>
-        <%
-            ProjetDAO projetDAO = new ProjetDAO();
-            for (Tache t : taches) {
-                Projet projet = projetDAO.getProjetById(t.getProjectId());
-                String projetNom = (projet != null && projet.getNom() != null) ? projet.getNom() : "Projet inconnu";
-        %>
-        <tr class="border-b">
-            <td class="p-2"><%= t.getId() %></td>
-            <td class="p-2"><%= t.getDescription() != null ? t.getDescription() : "Sans description" %></td>
-            <td class="p-2"><%= t.getDateDebut() != null ? t.getDateDebut() : "Non définie" %></td>
-            <td class="p-2"><%= t.getDateFin() != null ? t.getDateFin() : "Non définie" %></td>
-            <td class="p-2"><%= projetNom %></td>
-            <td class="p-2">
-                <a href="TacheServlet?action=edit&id=<%= t.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>
-                <a href="TacheServlet?action=delete&id=<%= t.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
-            </td>
-        </tr>
-        <% } %>
-    </table>
-    <% } %>
-    <a href="TacheServlet?action=create" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-4 inline-block">Ajouter une tâche</a>
-    <a href="ProjetServlet" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 mt-4 inline-block ml-2">Retour aux projets</a>
-</div>
+<body class="bg-gray-100 min-h-screen">
+<!-- Header -->
+<header class="bg-primary text-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="fas fa-hard-hat text-3xl"></i>
+            <h1 class="text-2xl font-bold ml-3">Construct<span class="text-secondary">Expert</span></h1>
+        </div>
+
+        <c:choose>
+            <c:when test="${not empty sessionScope.user}">
+                <div class="flex items-center">
+                    <div class="text-right mr-4">
+                        <div>${sessionScope.user.fullName}</div>
+                        <small class="text-gray-300">${sessionScope.user.role}</small>
+                    </div>
+                    <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center font-bold">
+                            ${fn:substring(sessionScope.user.fullName, 0, 1)}
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <a href="login.jsp" class="bg-accent hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Se connecter
+                </a>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="bg-white shadow">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:justify-between">
+            <ul class="flex flex-wrap">
+                <li>
+                    <a href="dashboard.jsp" class="block py-4 px-6 text-dark font-medium hover:text-accent border-b-3 border-transparent">
+                        <i class="fas fa-tachometer-alt mr-2"></i> Tableau de bord
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.jsp" class="block py-4 px-6 text-accent font-medium border-b-3 border-accent">
+                        <i class="fas fa-project-diagram mr-2"></i> Projets
+                    </a>
+                </li>
+                <li>
+                    <a href="tasks.jsp" class="block py-4 px-6 text-dark font-medium hover:text-accent border-b-3 border-transparent">
+                        <i class="fas fa-tasks mr-2"></i> Tâches
+                    </a>
+                </li>
+                <li>
+                    <a href="resources.jsp" class="block py-4 px-6 text-dark font-medium hover:text-accent border-b-3 border-transparent">
+                        <i class="fas fa-tools mr-2"></i> Ressources
+                    </a>
+                </li>
+            </ul>
+
+            <div class="flex items-center py-2">
+                <input type="text" placeholder="Rechercher..." class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+                <button type="submit" class="bg-accent text-white px-4 py-2 rounded-md ml-2">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Section -->
+<section class="py-8">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-primary text-white px-6 py-4 flex justify-between items-center">
+                <h2 class="text-xl font-bold">Liste des Projets</h2>
+                <i class="fas fa-project-diagram text-xl"></i>
+            </div>
+            <div class="p-6">
+                <%
+                    List<Projet> projets = (List<Projet>) request.getAttribute("projets");
+                    if (projets == null || projets.isEmpty()) {
+                %>
+                <p class="text-dark">Aucun projet trouvé.</p>
+                <% } else { %>
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                    <tr class="bg-light text-dark">
+                        <th class="p-3">ID</th>
+                        <th class="p-3">Nom</th>
+                        <th class="p-3">Description</th>
+                        <th class="p-3">Date Début</th>
+                        <th class="p-3">Date Fin</th>
+                        <th class="p-3">Budget</th>
+                        <th class="p-3">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for (Projet projet : projets) { %>
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-3"><%= projet.getId() %></td>
+                        <td class="p-3"><%= projet.getNom() != null ? projet.getNom() : "Sans nom" %></td>
+                        <td class="p-3"><%= projet.getDescription() != null ? projet.getDescription() : "Sans description" %></td>
+                        <td class="p-3"><%= projet.getDateDebut() != null ? projet.getDateDebut() : "Non définie" %></td>
+                        <td class="p-3"><%= projet.getDateFin() != null ? projet.getDateFin() : "Non définie" %></td>
+                        <td class="p-3"><%= projet.getBudget() %></td>
+                        <td class="p-3">
+                            <a href="ProjetServlet?action=edit&id=<%= projet.getId() %>" class="text-accent hover:text-blue-600 mr-2">
+                                <i class="fas fa-edit"></i> Modifier
+                            </a>
+                            <a href="ProjetServlet?action=delete&id=<%= projet.getId() %>" class="text-danger hover:text-red-700" onclick="return confirm('Confirmer la suppression ?');">
+                                <i class="fas fa-trash-alt"></i> Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+                <% } %>
+                <div class="mt-6 flex justify-end">
+                    <a href="ProjetServlet?action=create" class="bg-accent hover:bg-blue-600 text-white px-5 py-2 rounded-md flex items-center">
+                        <i class="fas fa-plus-circle mr-2"></i> Ajouter un projet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </body>
 </html>

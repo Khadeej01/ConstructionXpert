@@ -473,8 +473,8 @@
 <nav>
     <div class="container nav-container">
         <ul class="main-menu">
-            <li><a href="dashboard.jsp" class="active"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
-            <li><a href="createTache.jsp"><i class="fas fa-project-diagram"></i> Projets</a></li>
+            <li><a href="index.jsp" class="active"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
+            <li><a href="listProjets.jsp"><i class="fas fa-project-diagram"></i> Projets</a></li>
             <li><a href="createTache.jsp"><i class="fas fa-tasks"></i> Tâches</a></li>
             <li><a href="createResource.jsp"><i class="fas fa-tools"></i> Ressources</a></li>
         </ul>
