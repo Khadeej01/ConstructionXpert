@@ -62,6 +62,24 @@ public class ResourceDAO {
         return resources;
     }
 
-
+    public Resource getResourceById(int id) throws SQLException {
+        String sql = "SELECT * FROM resource WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Resource(
+                            rs.getInt("id"),
+                            rs.getString("nom"),
+                            rs.getString("type"),
+                            rs.getInt("quantite"),
+                            rs.getInt("task_id")
+                    );
+                }
+            }
+        }
+        return null;
+    }
 
 }

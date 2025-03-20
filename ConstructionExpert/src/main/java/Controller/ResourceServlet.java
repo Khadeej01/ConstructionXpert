@@ -77,7 +77,19 @@ public class ResourceServlet extends HttpServlet {
                         Integer.parseInt(request.getParameter("quantite")),
                         Integer.parseInt(request.getParameter("taskId"))
                 );
-
+                resourceDAO.createResource(resource);
+                response.sendRedirect("ResourceServlet?action=list");
+            } else if (action.equals("update")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Resource resource = new Resource(
+                        id,
+                        request.getParameter("nom"),
+                        request.getParameter("type"),
+                        Integer.parseInt(request.getParameter("quantite")),
+                        Integer.parseInt(request.getParameter("taskId"))
+                );
+                resourceDAO.updateResource(resource);
+                response.sendRedirect("ResourceServlet?action=list");
             }
         } catch (SQLException e) {
             e.printStackTrace();
