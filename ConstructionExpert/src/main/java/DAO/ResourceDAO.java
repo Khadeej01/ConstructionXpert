@@ -81,5 +81,18 @@ public class ResourceDAO {
         }
         return null;
     }
+    public void updateResource(Resource resource) throws SQLException {
+        String sql = "UPDATE resource SET nom = ?, type = ?, quantite = ?, task_id = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, resource.getNom());
+            stmt.setString(2, resource.getType());
+            stmt.setInt(3, resource.getQuantite());
+            stmt.setInt(4, resource.getTaskId());
+            stmt.setInt(5, resource.getId());
+            stmt.executeUpdate();
+        }
+    }
+
 
 }
