@@ -491,7 +491,7 @@
     <div class="container">
         <div class="dashboard-header">
             <h2>Tableau de bord</h2>
-            <button class="action-btn"><i class="fas fa-plus"></i> Nouveau projet</button>
+            <a href="createProjet.jsp" class="action-btn"><i class="fas fa-plus"></i> Nouveau projet</a>
         </div>
 
         <div class="dashboard-grid">
@@ -566,7 +566,7 @@
                     </div>
                 </div>
                 <div class="dash-card-footer">
-                    <a href="projects.jsp">Voir tous les projets</a>
+                    <a href="listProjets.jsp">Voir tous les projets</a>
                 </div>
             </div>
 
@@ -630,7 +630,7 @@
                     </div>
                 </div>
                 <div class="dash-card-footer">
-                    <a href="tasks.jsp">Voir toutes les tâches</a>
+                    <a href="listTaches.jsp">Voir toutes les tâches</a>
                 </div>
             </div>
 
@@ -666,7 +666,7 @@
                     </div>
                 </div>
                 <div class="dash-card-footer">
-                    <a href="resources.jsp">Voir toutes les ressources</a>
+                    <a href="listResources.jsp">Voir toutes les ressources</a>
                 </div>
             </div>
         </div>

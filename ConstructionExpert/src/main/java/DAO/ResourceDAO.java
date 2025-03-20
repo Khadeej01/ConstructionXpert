@@ -1,6 +1,5 @@
 package DAO;
 
-
 import Model.Resource;
 import util.DatabaseConnection;
 import java.sql.Connection;
@@ -43,4 +42,26 @@ public class ResourceDAO {
         }
         return resources;
     }
+
+    public List<Resource> getAllResources() throws SQLException {
+        List<Resource> resources = new ArrayList<>();
+        String sql = "SELECT * FROM resource";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                resources.add(new Resource(
+                        rs.getInt("id"),
+                        rs.getString("nom"),
+                        rs.getString("type"),
+                        rs.getInt("quantite"),
+                        rs.getInt("task_id")
+                ));
+            }
+        }
+        return resources;
+    }
+
+
+
 }

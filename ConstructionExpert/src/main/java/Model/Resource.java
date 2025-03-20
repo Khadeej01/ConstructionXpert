@@ -7,7 +7,7 @@ public class Resource {
     private int quantite;
     private int taskId;
 
-
+    // Constructeurs
     public Resource() {}
 
     public Resource(int id, String nom, String type, int quantite, int taskId) {
@@ -18,7 +18,7 @@ public class Resource {
         this.taskId = taskId;
     }
 
-
+    // Getters et setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getNom() { return nom; }

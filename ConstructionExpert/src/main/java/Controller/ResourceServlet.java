@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet("/ResourceServlet")
 public class ResourceServlet extends HttpServlet {
@@ -20,12 +21,39 @@ public class ResourceServlet extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null || action.isEmpty()) {
-            response.sendRedirect("TacheServlet");
-            return;
+            action = "list";
         }
 
-        if (action.equals("create")) {
-            request.getRequestDispatcher("/createResource.jsp").forward(request, response);
+        try {
+            if (action.equals("list")) {
+                List<Resource> resources = resourceDAO.getAllResources();
+                request.setAttribute("resources", resources);
+                request.getRequestDispatcher("/listResources.jsp").forward(request, response);
+            } else if (action.equals("create")) {
+                request.getRequestDispatcher("/createResource.jsp").forward(request, response);
+            } else if (action.equals("edit")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Resource resource = resourceDAO.getResourceById(id);
+                if (resource != null) {
+                    request.setAttribute("resource", resource);
+                    request.getRequestDispatcher("/editResource.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("error", "Ressource avec ID " + id + " non trouvée.");
+                    request.getRequestDispatcher("/error.jsp").forward(request, response);
+                }
+            } else if (action.equals("delete")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                resourceDAO.deleteResource(id);
+                response.sendRedirect("ResourceServlet?action=list");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("error", "Erreur SQL : " + e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            request.setAttribute("error", "ID invalide : " + e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 
@@ -49,8 +77,7 @@ public class ResourceServlet extends HttpServlet {
                         Integer.parseInt(request.getParameter("quantite")),
                         Integer.parseInt(request.getParameter("taskId"))
                 );
-                resourceDAO.createResource(resource);
-                response.sendRedirect("TacheServlet?action=list");
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -52,9 +52,9 @@
   <a href="createTache.jsp" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-4 inline-block">Ajouter une tâche</a>
   <a href="listProjets.jsp" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 mt-4 inline-block ml-2">Retour aux projets</a>
   <td class="p-2">
-    <a href="TacheServlet?action=edit&id=<%= t.getId() %>" class="text-blue-600 hover:text-blue-800">Modifier</a>
-    <a href="TacheServlet?action=delete&id=<%= t.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
-    <a href="ResourceServlet=create=<%= t.getId() %>" class="text-green-600 hover:text-green-800 ml-2">Ajouter une ressource</a>
+    <a href="TacheServlet?action=edit&id=<%= t.getId() %>" class="text-blue-600 hover:text-blue-800">Edit</a>
+    <a href="TacheServlet?action=delete&id=<%= t.getId() %>" class="text-red-600 hover:text-red-800 ml-2" onclick="return confirm('Confirmer la suppression ?');">Delete</a>
+    <a href="<%= t.getId() %>" class="text-green-600 hover:text-green-800 ml-2">Ajouter une ressource</a>
   </td>
 </div>
 </body>
