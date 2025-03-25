@@ -33,14 +33,17 @@ SmartTomcat
 
 # 1- Use case  Diagram  : 
 
-![image](https://github.com/user-attachments/assets/41198c58-88ef-4f81-ab03-f5228bbb0031)
+![image](https://github.com/user-attachments/assets/6121118c-48d4-4467-a509-5c96d1e7ba1b)
+
 
 
 # 2-  Sequence  Diagram   : 
 
-![image](https://github.com/user-attachments/assets/c1740921-a8c2-4076-b952-5bdb5534a2d2)
+![image](https://github.com/user-attachments/assets/19f9a2a0-079f-4c58-afe2-efaad59cfd41)
+
 
 
 # 3-  Class   Diagram   : 
 
-![image](https://github.com/user-attachments/assets/10a8ef82-1f6f-47ab-91ba-96e4e6c3541c)
+![image](https://github.com/user-attachments/assets/1e51d2a2-09a1-4401-9ec0-022969713077)
+
