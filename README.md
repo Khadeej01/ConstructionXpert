@@ -7,12 +7,13 @@ ConstructionXpert est une application web conçue pour simplifier la gestion des
 Centraliser la gestion des projets de construction.
 Faciliter la planification des tâches et l’assignation des ressources.
 Offrir une interface utilisateur moderne et responsive.
+
 **Fonctionnalités**
 _Gestion des Projets_ : Créer, modifier et suivre les projets (nom, description, dates, budget).
 _Gestion des Tâches_ : Planifier et gérer les tâches associées à un projet (description, dates de début et de fin).
 _Gestion des Ressources_ : Suivre les stocks de ressources (nom, type, quantité).
 _Assignation des Ressources_ : Attribuer des ressources à des tâches via un bouton dédié, avec un formulaire pour sélectionner la tâche et la quantité.
-Technologies Utilisées
+Technologies Utilisées :
 
 ## Backend
 
@@ -33,17 +34,20 @@ SmartTomcat
 
 # 1- Use case  Diagram  : 
 
-![image](https://github.com/user-attachments/assets/6121118c-48d4-4467-a509-5c96d1e7ba1b)
+![image](https://github.com/user-attachments/assets/10217bd2-6dbd-4766-9db8-e8547031fa72)
+
 
 
 
 # 2-  Sequence  Diagram   : 
 
-![image](https://github.com/user-attachments/assets/19f9a2a0-079f-4c58-afe2-efaad59cfd41)
+![image](https://github.com/user-attachments/assets/e4b6cb00-9fc2-40e6-85bc-7354411594ba)
+
 
 
 
 # 3-  Class   Diagram   : 
 
-![image](https://github.com/user-attachments/assets/1e51d2a2-09a1-4401-9ec0-022969713077)
+![image](https://github.com/user-attachments/assets/950544b0-07ae-4c5a-8dc4-8734404f4306)
+
 
